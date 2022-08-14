@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/login', function () {
-    return view('admin/login');
+Route::namespace('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
+
+    Route::get('/login', [AdminController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'postLogin'])->name('login'); 
+    Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+
+    Route::get('/user', [AdminController::class, 'userForm'])->name('user.form');
+
+    Route::post('/create-user', [AdminController::class, 'createUser'])->name('user.create');
+    Route::post('/update-user', [AdminController::class, 'updateUser'])->name('user.update');
+    Route::post('/delete-user', [AdminController::class, 'deleteUser'])->name('user.delete');
 });
