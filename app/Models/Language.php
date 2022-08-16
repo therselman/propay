@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Client;
 
-class Interests extends Model
+class Language extends Model
 {
     use HasFactory;
 
@@ -16,6 +15,7 @@ class Interests extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'description',
+        'code',
+        'name',
     ];
 }

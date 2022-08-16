@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,16 +15,22 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $password = env('ADMIN_PASSWORD');
+
+        if (empty($password)) {
+            throw new \Exception('Please add an `ADMIN_PASSWORD` value to your `.env` file for the admin user!');
+        }
+
         User::create([
             'name' => 'super',
             'surname' => 'admin',
             'username' => 'admin',
-            'email' => 'admin@gmail.com',
-            'rsa_id' => '7710245800088',
-            'mobile_number' => '083-123-4567',
-            'date_of_birth' => '1977-10-24',
+            'email' => 'admin@example.com',
+            'rsa_id' => '800516 5800 088',
+            'mobile_number' => '083 123 4567',
+            'date_of_birth' => '1980-05-16',
             'language_id' => '1',
-            'password' => Hash::make('password'),       //  TODO: Get the admin password from an .env or config file !?!?
+            'password' => Hash::make($password),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

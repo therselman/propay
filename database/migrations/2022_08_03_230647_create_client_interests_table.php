@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserInterestsTable extends Migration
+class CreateClientInterestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateUserInterestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_interests', function (Blueprint $table) {
+        Schema::create('client_interests', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->bigInteger('client_id');
             $table->bigInteger('interest_id');
-            $table->unique(['user_id', 'interest_id']);
+            $table->unique(['client_id', 'interest_id']);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateUserInterestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_interests');
+        Schema::dropIfExists('client_interests');
     }
 }

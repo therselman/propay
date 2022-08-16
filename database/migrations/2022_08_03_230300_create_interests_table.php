@@ -17,25 +17,6 @@ class CreateInterestsTable extends Migration
             $table->id();
             $table->string('description');
         });
-
-        $interests = [
-            'Fishing',
-            'Traveling',
-            'Hiking',
-            'Swimming',
-            'Programming',
-            'Gaming',
-            'TV',
-            'Movies',
-        ];
-
-        $data = [];
-
-        foreach ($interests as $interest) {
-            $data[] = ['description' => $interest];
-        }
-
-        DB::table('interests')->insert($data);
     }
 
     /**

@@ -46,11 +46,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '172.24.192.1'),       //  '172.24.192.1'  '172.31.176.1'),      Get the IP address of WSL localhost: # cat /etc/resolv.conf ... then do: mysql -h 172.24.192.1 -u  root -p to get IP address; eg. root'@'172.24.200.246 ... add the IP address to the root user!
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'propay'),
-            'username' => env('DB_USERNAME', 'root'),     //  root        propay
-            'password' => env('DB_PASSWORD', 'blu3st1ng'),     //  blu3st1ng   Pr0p@y
+            'database' => env('DB_DATABASE', ''),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
